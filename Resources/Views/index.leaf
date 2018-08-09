@@ -1,0 +1,222 @@
+#set("title") { #(title) }
+
+#set("bodyClass") { header-vertical }
+
+#set("navigation") {
+<header id="header" class="bg-white hidden-sm hidden-xs">
+    
+    <!-- Photo -->
+    <div class="photo">
+        <img href="https://nathantannar.me" src="/images/Nathan_Tannar.jpg" alt="Nathan Tannar">
+            </div>
+    
+    <!-- Navigation -->
+    <nav id="main-menu">
+        <ul class="nav nav-vertical">
+            <li><a href="#welcome"><span>Welcome</span></a></li>
+            <li><a href="#resume"><span>Interactive Resume</span></a></li>
+            <li><a href="#portfolio"><span>Portfolio</span></a></li>
+            <li><a href="#contact"><span>Contact</span></a></li>
+        </ul>
+    </nav>
+    
+    <!-- Social Media -->
+    <div class="social-media">
+        <strong class="text-sm">Connect / Github</strong>
+        <ul class="list-inline margin-t-10">
+            <li><a href="https://www.facebook.com/nathan.tannar" class="icon icon-xs" target="_blank"><i class="fa fa-facebook text-muted"></i></a></li>
+            <li><a href="https://www.instagram.com/nathantannar4/" class="icon icon-xs" target="_blank"><i class="fa fa-instagram text-muted"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/nathantannar" class="icon icon-xs" target="_blank"><i class="fa fa-linkedin text-muted"></i></a></li>
+            <li><a href="https://github.com/nathantannar4/" class="icon icon-xs" target="_blank"><i class="fa fa-github text-muted"></i></a></li>
+        </ul>
+    </div>
+</header>
+}
+
+#set("content") {
+<!-- Content -->
+<div id="content" class="bg-white">
+    
+    <!-- Section - Home -->
+    <section id="welcome" class="section fullheight bg-secondary dark">
+        
+        <!-- BG Image -->
+        <div class="bg-image animated infinite zooming"><img src="/images/banner.jpg" alt="Banner"></div>
+        
+        <!-- Info -->
+        <div class="container container-wide v-bottom padding-v-120 ">
+            <h2 class="text-lg margin-b-0">Hi! I’m</h2>
+            <h1 class="text-lg margin-b-0">Nathan Tannar</strong></h1>
+            <h5 class="text-lg margin-b-0">Computer Engineering Undergraduate Student</h5>
+            <h5 class="text-lg margin-b-0">iOS Developer / Backend Developer</h5>
+            <br>
+            <span data-target="local-scroll">
+                <a href="#resume" class="btn btn-lg btn-primary animated" data-animation="bounceIn">
+                    <span>Interactive Resume</span>
+                    <i class="ti-arrow-down"></i>
+                </a>
+            </span>
+            <a href="/files/Nathan_Tannar_Resume.pdf" class="btn btn-link">
+                <span>Download Resume</span>
+                <i class="ti-file"></i>
+            </a>
+        </div>
+        
+    </section>
+    <!-- Section - Home / End -->
+    
+    <!-- Section - Resume -->
+    <section id="resume" class="section padding-v-60">
+        <div class="container container-wide">
+            <h6 class="margin-b-50">Interactive Resume</h6>
+            
+            <div class="row padding-lg">
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    
+                    <!-- Resume Box / Education -->
+                    <div class="resume-box">
+                        <span class="icon animated" data-animation="fadeInDown"><i class="fa fa-graduation-cap text-tertiary"></i></span>
+                        <h4>My Education</h4>
+                        <div class="timeline">
+                            <!-- Education -->
+                            #for(school in education) {
+                                <div class="timeline-event te-primary">
+                                    <span class="event-date">#(school.date)</i></span>
+                                    <span class="event-name">#(school.degree) <strong>#(school.concentration)</strong></span>
+                                    <span class="event-description"><a href=#(school.url) target="_blank">#(school.school)</a></span>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    
+                    <!-- Resume Box / Hobbies -->
+                    <div class="resume-box">
+                        <span class="icon animated" data-animation="fadeInDown">
+                            <i class="fa fa-sun-o text-tertiary"></i>
+                        </span>
+                        <h4>Hobbies &amp; Interests</h4>
+                        <ul class="list-inline">
+                            <!-- Hobbies -->
+                            #for(hobby in hobbies) {
+                                <li>
+                                    <div class="icon-box text-center">
+                                        <span class="icon icon-sm icon-circle icon-primary icon-filled">
+                                            <i class="#(hobby.icon)"></i>
+                                        </span>
+                                        <span class="title">#(hobby.name)</span>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <!-- Resume Box / Jobs -->
+                    <div class="resume-box">
+                        <span class="icon animated" data-animation="fadeInDown"><i class="fa fa-bolt text-tertiary"></i></span>
+                        <h4>Work Experience</h4>
+                        <div class="timeline">
+                            <!-- Jobs -->
+                            #for(job in jobs) {
+                                <div class="timeline-event te-primary">
+                                    <span class="event-date">#(job.date)</span>
+                                    <span class="event-name"><strong>#(job.title)</strong></span>
+                                    <span class="event-subname"><a href=#(job.url) target="_blank">#(job.company)</a></span>
+                                    #for(highlight in job.highlights) {
+                                        <span class="event-description">
+                                            <li>#(hightlight)</li>
+                                        </span>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <!-- Resume Box / Technical Skills -->
+                    <div class="resume-box">
+                        <span class="icon animated" data-animation="fadeInDown"><i class="fa fa-certificate text-tertiary"></i></span>
+                        <h4>Technical Skills</h4>
+                        #for(skill in skills) {
+                            <!-- Skill -->
+                            <span class="event-subname"><strong>#(skill.name):</strong></span>
+                            <p class="event-description">#(skill.description)</p>
+                        }
+                    </div>
+                    
+                    <!-- Resume Box / Technical Languages -->
+                    <div class="resume-box">
+                        <span class="icon animated" data-animation="fadeInDown">
+                            <i class="fa fa-code text-tertiary"></i>
+                        </span>
+                        <h4>Technical Languages</h4>
+                        #for(language in languages) {
+                            <!-- Language -->
+                            <div class="skill">
+                                <div class="progress progress-animated">
+                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow=#(language.percent) aria-valuemin="0" aria-valuemax="100">
+                                        <span></span>
+                                    </div>
+                                </div>
+                                <strong>#(language.name)</strong>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section - Portfolio -->
+    <section id="portfolio" class="section bg-grey padding-v-60">
+        
+        <div class="container container-wide">
+            <h6 class="margin-b-50">Portfolio Highlights</h6>
+            <div class="row masonry">
+                <!-- Masonry Sizer -->
+                <div class="masonry-sizer col-lg-4 col-sm-6 col-xs-12"></div>
+                
+                #for(project in projects) {
+                    <!-- Project -->
+                    <article class="post post-item masonry-item col-lg-4 col-sm-6 col-xs-12" >
+                        <div class="post-photo margin-b-10">
+                            <img src=#(project.imageUrl) alt="Project Image" style="border-radius: 5px">
+                        </div>
+                        <div class="post-content animated" data-animation="fadeInUp" style="border-radius: 5px">
+                            <div class="meta">
+                                <span><i class="fa fa-file-code-o"></i>#(project.language)</span>
+                                <span><i class="fa fa-code-fork"></i>v#(project.version)</span>
+                                <span><i class="fa fa-tag"></i>#(project.category)</span>
+                            </div>
+                            <h1>#(project.name)</h1>
+                            <p class="lead">#(project.caption)</p>
+                            #for(highlight in project.highlights) {
+                                <p class="lead"><strong>#(highlight)</strong></p>
+                            }
+                            <p>#(project.description)</p>
+                            <a href=#(project.url) class="btn btn-primary btn-xs">
+                                <span>Read more</span>
+                                <i class="ti-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section - Contact -->
+    <section id="contact" class="section padding-v-60 min-fullheight">
+        <div class="contact-box bg-grey animated" data-animation="flipInY" style="border-radius: 5px">
+            <h3>Contact Me</h3>
+            <a class="btn btn-sm btn-primary animated" href="tel:604-355-6292">604-355-6292</a>
+            <a class="btn btn-sm btn-primary animated" href="mailto:nathantannar4@gmail.com">nathantannar4@gmail.com</a>
+    </section>
+    
+</div>
+}
+
+#embed("base")

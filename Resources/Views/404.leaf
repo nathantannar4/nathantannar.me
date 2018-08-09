@@ -1,0 +1,39 @@
+#set("title") { 404 Error }
+
+#set("bodyClass") { header-horizontal }
+
+#set("navigation") {
+<!-- Header -->
+<header id="header" class="bg-white hidden-sm hidden-xs">
+    
+    <!-- Photo -->
+    <a href="#" class="photo" style="padding: .2cm">
+        <img src="/images/NT Logo Blue.png" alt="..." >
+    </a>
+    
+    <!-- Navigation -->
+    <nav id="main-menu"></nav>
+</header>
+}
+
+#set("content") {
+<!-- Content -->
+<div id="content" class="bg-white">
+
+    <!-- Section - Home -->
+    <section id="error" class="section fullheight bg-grey padding-v-100 text-center">
+
+        <!-- Info -->
+        <div class="container container-wide v-bottom padding-v-100 ">
+            <h2 class="text-lg margin-b-0">Oops! 404 Error</h2>
+            <h1 class="text-lg margin-b-0">That page does not exist</strong></h1>
+            <br>
+            <a href="/" class="btn btn-primary"><span>Go Back</span><i class="ti-home"></i></a>
+        </div>
+
+    </section>
+    <!-- Section - Home / End -->
+</div>
+}
+
+#embed("base")
