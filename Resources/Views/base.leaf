@@ -42,6 +42,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,300,100" rel="stylesheet" type="text/css">
 
     <!-- CSS Styles -->
+    <link rel="stylesheet" href="/css/app.css" />
     <link rel="stylesheet" href="/css/styles.css" />
 
     <!-- Fontawesome -->
@@ -50,52 +51,6 @@
     <!-- CSS Template -->
     <link rel="stylesheet" href="/css/theme.css" />
     <link rel="stylesheet" href="/css/color.css" />
-
-</head>
-
-<body class="#get(bodyClass)">
-
-    <!-- Loader -->
-    <div id="page-loader" class="bg-white"></div>
-
-    <!-- Header -->
-    #get(navigation)
-
-    #get(content)
-    
-    <!-- Mobile Navigation -->
-    <a href="#" id="mobile-nav-toggle" class="icon icon-circle icon-sm icon-primary icon-hover visible-xs visible-sm" data-target="mobile-nav">
-        <i class="ti-menu"></i>
-    </a>
-    <nav id="mobile-nav" class="bg-white">
-        <div class="mobile-nav-wrapper">
-            <!-- Avatar -->
-            <img src="/images/Nathan_Tannar.jpg" alt="Nathan Tannar" class="img-circle margin-b-30">
-                <!-- Nav -->
-                <ul class="nav nav-vertical">
-                    <li><a href="#start"><span>Start</span></a></li>
-                    <li><a href="#resume"><span>Interactive Resume</span></a></li>
-                    <li><a href="#portfolio"><span>Portfolio</span></a></li>
-                    <li><a href="#contact"><span>Contact</span></a></li>
-                </ul>
-                <br>
-                <!-- Social Media -->
-                <div class="social-media">
-                    <strong class="text-sm">Connect / Github</strong>
-                    <ul class="list-inline margin-t-10">
-                        <li><a href="https://www.facebook.com/nathan.tannar" class="icon icon-xs" target="_blank"><i class="fa fa-facebook text-muted"></i></a></li>
-                        <li><a href="https://www.instagram.com/nathantannar4/" class="icon icon-xs" target="_blank"><i class="fa fa-instagram text-muted"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/nathantannar" class="icon icon-xs" target="_blank"><i class="fa fa-linkedin text-muted"></i></a></li>
-                        <li><a href="https://github.com/nathantannar4/" class="icon icon-xs" target="_blank"><i class="fa fa-github text-muted"></i></a></li>
-                    </ul>
-                </div>
-                </div>
-        <a href="#" class="mobile-nav-close icon icon-hover icon-xs icon-circle icon-primary" data-target="mobile-nav"><i class="fa fa-times"></i></a>
-    </nav>
-
-    <!-- Ajax Wrapper & Loader -->
-    <div id="ajax-modal"></div>
-    <div id="ajax-loader"><i class="fa fa-spinner fa-spin"></i></div>
 
     <!-- JS Libraries -->
     <script src="/javascript/jquery-1.11.3.min.js"></script>
@@ -125,6 +80,19 @@
         ga('create', 'UA-104829879-1', 'auto');
         ga('send', 'pageview');
     </script>
+
+</head>
+
+<body class="#get(bodyClass)">
+
+    <!-- Header -->
+    #get(navigation)
+
+    #get(content)
+
+    <!-- Ajax Wrapper & Loader -->
+    <div id="ajax-modal"></div>
+    <div id="ajax-loader"><i class="fa fa-spinner fa-spin"></i></div>
 
 </body>
 

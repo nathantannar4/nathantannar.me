@@ -31,9 +31,42 @@
         </ul>
     </div>
 </header>
+
+<!-- Mobile Navigation -->
+<a href="#" id="mobile-nav-toggle" class="icon icon-circle icon-sm icon-primary icon-hover visible-xs visible-sm" data-target="mobile-nav">
+    <i class="ti-menu"></i>
+</a>
+<nav id="mobile-nav" class="bg-white">
+    <div class="mobile-nav-wrapper">
+        <!-- Avatar -->
+        <img src="/images/Nathan_Tannar.jpg" alt="Nathan Tannar" class="img-circle margin-b-30">
+            <!-- Nav -->
+            <ul class="nav nav-vertical">
+                <li><a href="#start"><span>Start</span></a></li>
+                <li><a href="#resume"><span>Interactive Resume</span></a></li>
+                <li><a href="#portfolio"><span>Portfolio</span></a></li>
+                <li><a href="#contact"><span>Contact</span></a></li>
+            </ul>
+            <br>
+            <!-- Social Media -->
+            <div class="social-media">
+                <strong class="text-sm">Connect / Github</strong>
+                <ul class="list-inline margin-t-10">
+                    <li><a href="https://www.facebook.com/nathan.tannar" class="icon icon-xs" target="_blank"><i class="fa fa-facebook text-muted"></i></a></li>
+                    <li><a href="https://www.instagram.com/nathantannar4/" class="icon icon-xs" target="_blank"><i class="fa fa-instagram text-muted"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/nathantannar" class="icon icon-xs" target="_blank"><i class="fa fa-linkedin text-muted"></i></a></li>
+                    <li><a href="https://github.com/nathantannar4/" class="icon icon-xs" target="_blank"><i class="fa fa-github text-muted"></i></a></li>
+                </ul>
+            </div>
+            </div>
+    <a href="#" class="mobile-nav-close icon icon-hover icon-xs icon-circle icon-primary" data-target="mobile-nav"><i class="fa fa-times"></i></a>
+</nav>
 }
 
 #set("content") {
+<!-- Loader -->
+<div id="page-loader" class="bg-white"></div>
+
 <!-- Content -->
 <div id="content" class="bg-white">
     
@@ -61,9 +94,7 @@
                 <i class="ti-file"></i>
             </a>
         </div>
-        
     </section>
-    <!-- Section - Home / End -->
     
     <!-- Section - Resume -->
     <section id="resume" class="section padding-v-60">
@@ -84,9 +115,26 @@
                                     <span class="event-date">#(school.date)</i></span>
                                     <span class="event-name">#(school.degree) <strong>#(school.concentration)</strong></span>
                                     <span class="event-description"><a href=#(school.url) target="_blank">#(school.school)</a></span>
+                                    <div class="padding-v-10"></div>
+                                    #for(award in school.awards) {
+                                        <span class="event-description">
+                                            <li><h5>#(award)<h5></li>
+                                        </span>
+                                    }
                                 </div>
                             }
                         </div>
+                    </div>
+                    
+                    <!-- Resume Box / Technical Skills -->
+                    <div class="resume-box">
+                        <span class="icon animated" data-animation="fadeInDown"><i class="fa fa-certificate text-tertiary"></i></span>
+                        <h4>Technical Skills</h4>
+                        #for(skill in skills) {
+                        <!-- Skill -->
+                        <span class="event-subname"><strong>#(skill.name):</strong></span>
+                        <p class="event-description">#(skill.description)</p>
+                        }
                     </div>
                     
                     <!-- Resume Box / Hobbies -->
@@ -126,7 +174,7 @@
                                     <span class="event-subname"><a href=#(job.url) target="_blank">#(job.company)</a></span>
                                     #for(highlight in job.highlights) {
                                         <span class="event-description">
-                                            <li>#(hightlight)</li>
+                                            <li>#(highlight)</li>
                                         </span>
                                     }
                                 </div>
@@ -136,17 +184,6 @@
                 </div>
                 
                 <div class="col-md-4 col-sm-6 col-xs-12">
-                    <!-- Resume Box / Technical Skills -->
-                    <div class="resume-box">
-                        <span class="icon animated" data-animation="fadeInDown"><i class="fa fa-certificate text-tertiary"></i></span>
-                        <h4>Technical Skills</h4>
-                        #for(skill in skills) {
-                            <!-- Skill -->
-                            <span class="event-subname"><strong>#(skill.name):</strong></span>
-                            <p class="event-description">#(skill.description)</p>
-                        }
-                    </div>
-                    
                     <!-- Resume Box / Technical Languages -->
                     <div class="resume-box">
                         <span class="icon animated" data-animation="fadeInDown">
@@ -165,6 +202,28 @@
                             </div>
                         }
                     </div>
+                    
+                    <!-- Resume Box / Volunteer Jobs -->
+                    <div class="resume-box">
+                        <span class="icon animated" data-animation="fadeInDown"><i class="fa fa-bolt text-tertiary"></i></span>
+                        <h4>Volunteer Experience</h4>
+                        <div class="timeline">
+                            <!-- Jobs -->
+                            #for(job in volunteerJobs) {
+                            <div class="timeline-event te-primary">
+                                <span class="event-date">#(job.date)</span>
+                                <span class="event-name"><strong>#(job.title)</strong></span>
+                                <span class="event-subname"><a href=#(job.url) target="_blank">#(job.company)</a></span>
+                                #for(highlight in job.highlights) {
+                                <span class="event-description">
+                                    <li>#(highlight)</li>
+                                </span>
+                                }
+                            </div>
+                            }
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
@@ -183,7 +242,7 @@
                     <!-- Project -->
                     <article class="post post-item masonry-item col-lg-4 col-sm-6 col-xs-12" >
                         <div class="post-photo margin-b-10">
-                            <img src=#(project.imageUrl) alt="Project Image" style="border-radius: 5px">
+                            <img src=#(project.imageUrl) style="border-radius: 5px">
                         </div>
                         <div class="post-content animated" data-animation="fadeInUp" style="border-radius: 5px">
                             <div class="meta">
@@ -214,6 +273,7 @@
             <h3>Contact Me</h3>
             <a class="btn btn-sm btn-primary animated" href="tel:604-355-6292">604-355-6292</a>
             <a class="btn btn-sm btn-primary animated" href="mailto:nathantannar4@gmail.com">nathantannar4@gmail.com</a>
+        </div>
     </section>
     
 </div>
