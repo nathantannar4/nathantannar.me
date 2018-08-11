@@ -47,31 +47,25 @@ namespace :deploy do
       # Use 'cap deploy:push IGNORE_DEPLOY_RB=1' to ignore changes to this file (for testing)
       status = %x(git status --porcelain).chomp
       if status != ""
-        if status !~ %r{^[M ][M ] config/deploy.rb$}
-            puts "Local git repository has uncommitted changes"
-            set :commit_message, ask("Commit Message (or input skip to skip)", Time.now.strftime("%d/%m/%Y %H:%M"))
-            if fetch(:commit_message) != 'skip'
-                run_locally do
-                    execute "git add -A"
-                    execute "git commit -m '#{fetch(:commit_message)}'"
-                end
+        puts "Local git repository has uncommitted changes"
+        set :commit_message, ask("Commit Message (or input skip to skip)", Time.now.strftime("%d/%m/%Y %H:%M"))
+        if fetch(:commit_message) != 'skip'
+            run_locally do
+                execute "git add -A"
+                execute "git commit -m '#{fetch(:commit_message)}'"
             end
-
-        elsif !ENV["IGNORE_DEPLOY_RB"]
-            # This is used for testing changes to this script without committing them first
-            raise Capistrano::Error, "Local git repository has uncommitted changes (set IGNORE_DEPLOY_RB=1 to ignore changes to deploy.rb)"
         end
       end
   
         # Check we are on the master branch, so we can't forget to merge before deploying
         branch = %x(git branch --no-color 2>/dev/null | sed -e '/^[^*]/d' -e 's/* \\(.*\\)/\\1/').chomp
         if branch != "master" && !ENV["IGNORE_BRANCH"]
-            raise Capistrano::Error, "Not on master branch (set IGNORE_BRANCH=1 to ignore)"
+            raise "Not on master branch (set IGNORE_BRANCH=1 to ignore)"
         end
 
         # Push the changes
         if ! system "git push #{fetch(:repository)} master"
-            raise Capistrano::Error, "Failed to push changes to #{fetch(:repository)}"
+            raise "Failed to push changes to #{fetch(:repository)}"
         end
   
     end
