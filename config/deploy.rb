@@ -64,8 +64,8 @@ namespace :deploy do
         end
 
         # Push the changes
-        if ! system "git push #{fetch(:repository)} master"
-            raise "Failed to push changes to #{fetch(:repository)}"
+        if ! system "git push #{fetch(:repo_url)} master"
+            raise "Failed to push changes to #{fetch(:repo_url)}"
         end
   
     end
