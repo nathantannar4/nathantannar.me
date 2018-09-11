@@ -66,7 +66,7 @@ extension Resume {
     
     static func generate() -> Resume {
         let education: [Education] = [
-            Education(school: "Simon Fraser University", degree: "Bachelors of Applied Science", concentration: "Computer Engineering", date: "GRADUATING SPRING 2019", awards: ["Dean's Honor Roll 2017/2018"], url: "http://www.sfu.ca/engineering/current-students/undergraduate-students/programs-and-requirements/computer-engineering.html"),
+            Education(school: "Simon Fraser University", degree: "Bachelors of Applied Science", concentration: "Computer Engineering", date: "GRADUATING 2019", awards: ["Dean's Honor Roll 2017/2018"], url: "http://www.sfu.ca/engineering/current-students/undergraduate-students/programs-and-requirements/computer-engineering.html"),
             Education(school: "Student Works Painting", degree: "Business Management", concentration: "", date: "JAN 2015", awards: ["Top 5 Rookie Franchisee", "Fast Start Award"], url: "https://studentworkspainting.ca"),
             Education(school: "R.E. Mountain Secondary", degree: "International Baccalaureate", concentration: "Diploma", date: "SEPT 2012 - JUNE 2014", awards: [], url: "https://www.ibo.org/about-the-ib/")
         ]
