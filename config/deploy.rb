@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :application, "nathantannar.me"
+set :application, "nathantannar.me.service"
 set :repo_url, "https://github.com/nathantannar4/nathantannar.me.git"
 
 # Default branch is :master

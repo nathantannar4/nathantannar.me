@@ -93,7 +93,7 @@ extension Resume {
             LanguageCompetence(name: "SQL", percent: 92),
             LanguageCompetence(name: "Java/Javascript", percent: 87),
             LanguageCompetence(name: "VHDL", percent: 86),
-            LanguageCompetence(name: "C/C++", percent: 8),
+            LanguageCompetence(name: "C/C++", percent: 82),
             LanguageCompetence(name: "Python", percent: 80)
         ]
         let skills: [Skill] = [
